@@ -11,9 +11,24 @@ const filterText={
 }
 
 const filter=function(lists,filterText){
-    lists.filter(function(list,filterText){
+
+    const filteredContent=lists.filter(function(list){
         return list.text.toLowerCase().includes(filterText.searchText.toLowerCase())
     })
 
+    document.querySelector('#div-filter').innerHTML=''
+
+    filteredContent.forEach(function(element){
+        const p=document.createElement('p')
+              p.textContent=element.text
+        document.querySelector('#div-filter').appendChild(p)
+    })
 
 }
+
+filter(lists,filterText)
+
+document.querySelector('#input-list-filter').addEventListener('input',function(e){
+    filterText.searchText=e.target.value
+    filter(lists,filterText)
+})
