@@ -32,3 +32,8 @@ document.querySelector('#input-list-filter').addEventListener('input',function(e
     filterText.searchText=e.target.value
     filter(lists,filterText)
 })
+
+document.querySelector('#name-form').addEventListener('submit',function(e){
+    e.preventDefault()
+    console.log(e.target.elements.firstname.value)
+})
