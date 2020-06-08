@@ -37,3 +37,6 @@ document.querySelector('#name-form').addEventListener('submit',function(e){
     e.preventDefault()
     console.log(e.target.elements.firstname.value)
 })
+
+const body_p=document.createElement('p')
+document.querySelector('body').appendChild(body_p)

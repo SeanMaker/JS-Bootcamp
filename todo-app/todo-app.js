@@ -62,4 +62,6 @@ document.querySelector('#add-things-todo').addEventListener('submit',function(e)
     e.target.elements.text.value=''
 })
 
+const body_p=document.createElement('p')
+document.querySelector('body').appendChild(body_p)
 
