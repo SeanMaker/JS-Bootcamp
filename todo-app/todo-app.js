@@ -13,19 +13,28 @@ ps.forEach(function (p) {
 })*/
 
 const filterText={
-    searchText:''
+    searchText:'',
+    hideCompleted:false
 }
 
 const renderTodos=function(todos,filerText){
-    const filteredTodes=todos.filter(function (todo) {
-        if(todo.text.toLowerCase().includes(filterText.searchText.toLowerCase())){
-            return todo.text
+    let filteredTodes=todos.filter(function (todo) {
+        return todo.text.toLowerCase().includes(filterText.searchText.toLowerCase())
+    })
+
+    filteredTodes=filteredTodes.filter(function(todo){
+        if(filterText.hideCompleted===true){
+            return todo.completed===false
+        }
+        else{
+            return todo
         }
     })
 
     const incompleteTodos=todos.filter(function(todo){
         return !todo.completed
     })
+
 
     document.querySelector('#div-filter').innerHTML=''
 
@@ -62,6 +71,8 @@ document.querySelector('#add-things-todo').addEventListener('submit',function(e)
     e.target.elements.text.value=''
 })
 
-const body_p=document.createElement('p')
-document.querySelector('body').appendChild(body_p)
+document.querySelector('#check-uncompleted').addEventListener('click',function(e){
+    filterText.hideCompleted=e.target.checked
+    renderTodos(todos,filterText)
+})
 
