@@ -69,10 +69,13 @@ document.querySelector('#add-things-todo').addEventListener('submit',function(e)
 
     renderTodos(todos,filterText)
     e.target.elements.text.value=''
+
+    localStorage.setItem('todos',JSON.stringify(todos))
 })
 
 document.querySelector('#check-uncompleted').addEventListener('click',function(e){
     filterText.hideCompleted=e.target.checked
     renderTodos(todos,filterText)
 })
+
 
