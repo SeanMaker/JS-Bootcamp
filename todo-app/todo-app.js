@@ -29,3 +29,5 @@ document.querySelector('#check-uncompleted').addEventListener('click',function(e
     filterText.hideCompleted=e.target.checked
     renderTodos(todos,filterText)
 })
+
+console.log(todos)
