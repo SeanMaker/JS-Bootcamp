@@ -30,4 +30,3 @@ document.querySelector('#check-uncompleted').addEventListener('click',function(e
     renderTodos(todos,filterText)
 })
 
-console.log(todos)

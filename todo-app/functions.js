@@ -54,7 +54,7 @@ const generateSummaryDOM=function(incompleteTodos){
     summary.textContent=`You have ${incompleteTodos.length} todos left.`
     return summary
 }
-
+//
 const button_submit=function(){
-
+    const content=''
 }
