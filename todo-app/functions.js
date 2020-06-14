@@ -55,6 +55,3 @@ const generateSummaryDOM=function(incompleteTodos){
     return summary
 }
 //
-const button_submit=function(){
-    const content=''
-}
