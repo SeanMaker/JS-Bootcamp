@@ -21,6 +21,7 @@ const renderTodos=function(todos,filerText){
     })
 
     filteredTodes=filteredTodes.filter(function(todo){
+
         if(filterText.hideCompleted===true){
             return todo.completed===false
         }
@@ -28,6 +29,8 @@ const renderTodos=function(todos,filerText){
             return todo
         }
     })
+
+
 
     const incompleteTodos=todos.filter(function(todo){
         return !todo.completed
@@ -43,9 +46,25 @@ const renderTodos=function(todos,filerText){
 
 //Get the DOM elements for an individual note
 const generateTodoDOM=function (element) {
-    const p=document.createElement('p')
-    p.textContent=element.text
-    return p
+    //set up a root div
+    const todoEl=document.createElement('div')
+
+    //set up and append a checkbox
+    const checkBox=document.createElement('input')
+    checkBox.setAttribute('type','checkbox')
+    todoEl.appendChild(checkBox)
+
+    //set up and append a span
+    const todoText=document.createElement('span')
+    todoText.textContent=element.text
+    todoEl.appendChild(todoText)
+
+    //set up and append a button
+    const removeButton=document.createElement('button')
+    removeButton.textContent='x'
+    todoEl.appendChild(removeButton)
+
+    return todoEl
 }
 
 //Get the DOM elements for list summary

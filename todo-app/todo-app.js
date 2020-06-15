@@ -30,6 +30,4 @@ document.querySelector('#check-uncompleted').addEventListener('click',function(e
     renderTodos(todos,filterText)
 })
 
-const button_clear=function(){
 
-}
