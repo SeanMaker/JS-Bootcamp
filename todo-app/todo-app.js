@@ -1,3 +1,6 @@
+
+
+
 let  todos=getSavedTodos()
 
 const filterText={
@@ -16,6 +19,7 @@ document.querySelector('#filter-todo').addEventListener('input',function (e) {
 document.querySelector('#add-things-todo').addEventListener('submit',function(e){
     e.preventDefault()
     todos.push({
+        id:uuidv4(),
         text:e.target.elements.text.value,
         completed:false
     })
