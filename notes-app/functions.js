@@ -81,8 +81,9 @@ const generateTodoDOM=function (element) {
     })
 
     //set up and append a span
-    const todoText=document.createElement('span')
+    const todoText=document.createElement('a')
     todoText.textContent=element.text
+    todoText.setAttribute('href','edit.html')
     todoEl.appendChild(todoText)
 
     //set up and append a button
@@ -103,7 +104,7 @@ const generateTodoDOM=function (element) {
 //Get the DOM elements for list summary
 const generateSummaryDOM=function(incompleteTodos){
     const summary=document.createElement('h2')
-    summary.textContent=`You have ${incompleteTodos.length} todos left.`
+    summary.textContent=`You have ${incompleteTodos.length} notes left.`
     return summary
 }
 //

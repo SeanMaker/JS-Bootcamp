@@ -1,6 +1,4 @@
 
-
-
 let  todos=getSavedTodos()
 
 const filterText={

@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="notes-app.js"></script>
+
 </head>
 <body>
-        <h1>new text!</h1>
+<h1>Notes</h1>
+<input id="filter-todo" type="text" placeholder="Filter notes">
+<label>
+    <input type="checkbox" id="check-uncompleted">Hide completed
+</label>
+<div id="div-filter"></div>
+<form action="" id="add-things-todo" name="take a shower">
+    <input type="text" id="input_add" placeholder="Some notes" name="text">
+    <button>Add notes</button>
+</form>
+<script src="uuidv4.js"></script>
+<script src="functions.js"></script>
+<script src="notes-app.js"></script>
+
 </body>
 </html>
