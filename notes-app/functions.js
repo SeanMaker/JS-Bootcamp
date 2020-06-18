@@ -1,110 +1,90 @@
-//Fetch existing todos from localStorage
-const getSavedTodos=function() {
-    const todosJSON = localStorage.getItem('todos')
-    if (todosJSON !== null) {
-        return JSON.parse(todosJSON)
+//Fetch existing notes from localStorage
+const getSavedNotes=function() {
+    const notesJSON = localStorage.getItem('notes')
+    if (notesJSON !== null) {
+        return JSON.parse(notesJSON)
     }
     else{
         return []
     }
 }
 
-//save todos to localStorage
-const saveTodos=function (todos) {
-    localStorage.setItem('todos',JSON.stringify(todos))
+//save notes to localStorage
+const saveNotes=function (notes) {
+    localStorage.setItem('notes',JSON.stringify(notes))
 }
 
-//remove todo when click the button
-const removeTodo=function (id) {
-    const todoIndex=todos.findIndex(function(todo){
-        return todo.id===id
+//remove note when click the button
+const removeNote=function (id) {
+    const noteIndex=notes.findIndex(function(note){
+        return note.id===id
     })
-    if(todoIndex>-1){
-        todos.splice(todoIndex,1)
+    if(noteIndex>-1){
+        notes.splice(noteIndex,1)
     }
 }
 
-//Toggle the completed value for a given todo
-const toggleTodos=function (id) {
-    const todo=todos.find(function(todo){
-        return todo.id===id
-    })
-    if(todo!==undefined){
-        todo.completed=!todo.completed
+//sort your notes by one of three ways
+const sortNotes=function(notes,sortBy){
+    if (sortBy==='byEdited'){
+        return notes.sort(function(a,b){
+            if(a.updatedAt>b.updatedAt){
+                return -1
+            }else if(a.updatedAt<b.updatedAt){
+                return 1
+            }else{
+                return 0
+            }
+        })
+
+        }
+    else{
+        return notes
     }
 }
 
-//Render application todos based on filters
-const renderTodos=function(todos,filerText){
-    let filteredTodes=todos.filter(function (todo) {
-        return todo.text.toLowerCase().includes(filterText.searchText.toLowerCase())
+
+//Render application notes based on filters
+const renderNotes=function(notes,filer){
+    notes=sortNotes(notes,filter.sortBy)
+
+    let filteredNotes=notes.filter(function (note) {
+        return note.title.toLowerCase().includes(filter.searchText.toLowerCase())
     })
 
-    filteredTodes=filteredTodes.filter(function(todo){
+    document.querySelector('#notes').innerHTML=''
 
-        if(filterText.hideCompleted===true){
-            return todo.completed===false
-        }
-        else{
-            return todo
-        }
-    })
-
-    const incompleteTodos=todos.filter(function(todo){
-        return !todo.completed
-    })
-
-    document.querySelector('#div-filter').innerHTML=''
-    document.querySelector('#div-filter').appendChild(generateSummaryDOM(incompleteTodos))
-
-    filteredTodes.forEach(function(element){
-        document.querySelector('#div-filter').appendChild(generateTodoDOM(element))
+    filteredNotes.forEach(function(element){
+        document.querySelector('#notes').appendChild(generateNoteDOM(element))
     })
 }
 
 //Get the DOM elements for an individual note
-const generateTodoDOM=function (element) {
+const generateNoteDOM=function (element) {
     //set up a root div
-    const todoEl=document.createElement('div')
-
-    //set up and append a checkbox
-    const checkBox=document.createElement('input')
-    checkBox.setAttribute('type','checkbox')
-    checkBox.checked=element.completed
-    todoEl.appendChild(checkBox)
-
-    //set todocheckbox
-    checkBox.addEventListener('change',function(){
-        toggleTodos(element.id)
-        saveTodos(todos)
-        renderTodos(todos,filterText)
-    })
-
-    //set up and append a span
-    const todoText=document.createElement('a')
-    todoText.textContent=element.text
-    todoText.setAttribute('href','edit.html')
-    todoEl.appendChild(todoText)
+    const noteEl=document.createElement('div')
 
     //set up and append a button
     const removeButton=document.createElement('button')
     removeButton.textContent='x'
-    todoEl.appendChild(removeButton)
+    noteEl.appendChild(removeButton)
 
-    //set EventListener to remove todo when click the button
+    //set up and append a archor
+    const noteTitle=document.createElement('a')
+    noteTitle.textContent=element.title
+    noteTitle.setAttribute('href',`edit.html#${element.id}`)
+    noteEl.appendChild(noteTitle)
+
+    //set EventListener to remove note when click the button
     removeButton.addEventListener('click',function () {
-        removeTodo(element.id)
-        saveTodos(todos)
-        renderTodos(todos,filterText)
+        removeNote(element.id)
+        saveNotes(notes)
+        renderNotes(notes,filter)
     })
-
-    return todoEl
+    return noteEl
 }
 
-//Get the DOM elements for list summary
-const generateSummaryDOM=function(incompleteTodos){
-    const summary=document.createElement('h2')
-    summary.textContent=`You have ${incompleteTodos.length} notes left.`
-    return summary
+//set up time left after updated
+const generateLastEdited=function(timestamp){
+    return `last edited ${moment(timestamp).fromNow()}`
 }
-//

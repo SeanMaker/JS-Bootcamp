@@ -1,42 +1,45 @@
-let  todos=getSavedTodos()
+let  notes=getSavedNotes()
 
-const filterText={
+const filter={
     searchText:'',
-    hideCompleted:false
+    sortBy:'byEdited'
 }
 
-renderTodos(todos,filterText)
+renderNotes(notes,filter)
 
-document.querySelector('#filter-todo').addEventListener('input',function (e) {
-    filterText.searchText=e.target.value
-    renderTodos(todos,filterText)
-
+document.querySelector('#search-text').addEventListener('input',function (e) {
+    filter.searchText=e.target.value
+    renderNotes(notes,filter)
 })
 
-document.querySelector('#add-things-todo').addEventListener('submit',function(e){
+document.querySelector('#filter-by').addEventListener('change',function(e){
+    filter.sortBy=e.target.value
+    renderNotes(notes,filter)
+})
+
+document.querySelector('#create-note').addEventListener('click',function(e){
     e.preventDefault()
     const id=uuidv4()
-    todos.push({
+    const now=moment()
+    const timestamp=moment().valueOf()
+    notes.push({
         id:id,
-        text:e.target.elements.text.value,
-        completed:false,
-        body:''
+        title:'',
+        body:'',
+        createdAt:timestamp,
+        updatedAt:timestamp
     })
-    saveTodos(todos)
+    saveNotes(notes)
     location.assign(`edit.html#${id}`)
-    // renderTodos(todos,filterText)
-    // e.target.elements.text.value=''
-
-})
-
-document.querySelector('#check-uncompleted').addEventListener('click',function(e){
-    filterText.hideCompleted=e.target.checked
-    renderTodos(todos,filterText)
+    // renderNotes(notes,filter)
 })
 
 window.addEventListener('storage',function(e){
-    if(e.key==='todos'){
-        todos=JSON.parse(e.newValue)
-        renderTodos(todos,filterText)
+    if(e.key==='notes'){
+        notes=JSON.parse(e.newValue)
+        renderNotes(notes,filter)
     }
 })
+
+
+
