@@ -8,13 +8,13 @@ const filterText={
 
 renderTodos(todos,filterText)
 
-document.querySelector('#filter-todo').addEventListener('input',function (e) {
+document.querySelector('#filter-todo').addEventListener('input', (e)=> {
     filterText.searchText=e.target.value
     renderTodos(todos,filterText)
 
 })
 
-document.querySelector('#add-things-todo').addEventListener('submit',function(e){
+document.querySelector('#add-things-todo').addEventListener('submit',(e)=>{
     e.preventDefault()
     todos.push({
         id:uuidv4(),
@@ -27,7 +27,7 @@ document.querySelector('#add-things-todo').addEventListener('submit',function(e)
 
 })
 
-document.querySelector('#check-uncompleted').addEventListener('click',function(e){
+document.querySelector('#check-uncompleted').addEventListener('click',(e)=>{
     filterText.hideCompleted=e.target.checked
     renderTodos(todos,filterText)
 })

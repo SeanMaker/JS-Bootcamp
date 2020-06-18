@@ -1,33 +1,26 @@
 //Fetch existing notes from localStorage
-const getSavedNotes=function() {
+const getSavedNotes=()=> {
     const notesJSON = localStorage.getItem('notes')
-    if (notesJSON !== null) {
-        return JSON.parse(notesJSON)
-    }
-    else{
-        return []
-    }
+    return notesJSON ? JSON.parse(notesJSON):[]
 }
 
 //save notes to localStorage
-const saveNotes=function (notes) {
+const saveNotes=(notes)=> {
     localStorage.setItem('notes',JSON.stringify(notes))
 }
 
 //remove note when click the button
-const removeNote=function (id) {
-    const noteIndex=notes.findIndex(function(note){
-        return note.id===id
-    })
+const removeNote=(id)=> {
+    const noteIndex=notes.findIndex((note)=>note.id===id)
     if(noteIndex>-1){
         notes.splice(noteIndex,1)
     }
 }
 
 //sort your notes by one of three ways
-const sortNotes=function(notes,sortBy){
+const sortNotes=(notes,sortBy)=>{
     if (sortBy==='byEdited'){
-        return notes.sort(function(a,b){
+        return notes.sort((a,b)=>{
             if(a.updatedAt>b.updatedAt){
                 return -1
             }else if(a.updatedAt<b.updatedAt){
@@ -45,22 +38,21 @@ const sortNotes=function(notes,sortBy){
 
 
 //Render application notes based on filters
-const renderNotes=function(notes,filer){
+const renderNotes=(notes,filer)=>{
     notes=sortNotes(notes,filter.sortBy)
 
-    let filteredNotes=notes.filter(function (note) {
-        return note.title.toLowerCase().includes(filter.searchText.toLowerCase())
-    })
+    let filteredNotes=notes.filter((note)=>note.title.toLowerCase().includes(filter.searchText.toLowerCase())
+    )
 
     document.querySelector('#notes').innerHTML=''
 
-    filteredNotes.forEach(function(element){
+    filteredNotes.forEach((element)=>{
         document.querySelector('#notes').appendChild(generateNoteDOM(element))
     })
 }
 
 //Get the DOM elements for an individual note
-const generateNoteDOM=function (element) {
+const generateNoteDOM=(element)=> {
     //set up a root div
     const noteEl=document.createElement('div')
 
@@ -76,7 +68,7 @@ const generateNoteDOM=function (element) {
     noteEl.appendChild(noteTitle)
 
     //set EventListener to remove note when click the button
-    removeButton.addEventListener('click',function () {
+    removeButton.addEventListener('click', ()=> {
         removeNote(element.id)
         saveNotes(notes)
         renderNotes(notes,filter)
@@ -85,6 +77,5 @@ const generateNoteDOM=function (element) {
 }
 
 //set up time left after updated
-const generateLastEdited=function(timestamp){
-    return `last edited ${moment(timestamp).fromNow()}`
-}
+const generateLastEdited=(timestamp)=> `last edited ${moment(timestamp).fromNow()}`
+
