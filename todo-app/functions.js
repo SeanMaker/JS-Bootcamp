@@ -1,5 +1,5 @@
 //Fetch existing todos from localStorage
-const getSavedTodos=()=> {
+const getSavedTodos=function() {
     const todosJSON = localStorage.getItem('todos')
     try{
         return todosJSON ? JSON.parse(todosJSON):[]

@@ -1,10 +1,10 @@
 const HangMan=function (word,num) {
     this.word=word
-    this.numberOfGuess=num
+    this.remainingGuesses=num
 }
 
-const manone=new HangMan('OK',5)
-const mantwo=new HangMan('Fine','6')
+const game1=new HangMan('OK',5)
+const game2=new HangMan('Fine','6')
 
-console.log(manone)
-console.log(mantwo)
+console.log(game1)
+console.log(game2)
