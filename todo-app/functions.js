@@ -98,4 +98,4 @@ const generateSummaryDOM=(incompleteTodos)=>{
     summary.textContent=`You have ${incompleteTodos.length} todos left.`
     return summary
 }
-//
+

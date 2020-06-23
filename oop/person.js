@@ -23,7 +23,7 @@ Person.prototype.setName=function(fullName){
 
 const me=new Person('Sean','Dong',29,['swimming','running'])
 me.setName('Shiheng Dong')
-const friendOne=new Person('ChengYang','Luo','28')
+const friendOne=new Person('ChengYang','Luo','28',['drama'])
 
 
 console.log(me.getBio())
