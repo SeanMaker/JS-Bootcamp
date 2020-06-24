@@ -22,5 +22,7 @@ HangMan.prototype.getPuzzle=function(){
 const game1=new HangMan('cbt',5)
 console.log(game1.getPuzzle())
 
-// const game2=new HangMan('qryasdxazc ','6')
-// console.log(game2.getPuzzle())
+const game2=new HangMan('qryasdxazc ','6')
+console.log(game2.getPuzzle())
+
+const abt=''
