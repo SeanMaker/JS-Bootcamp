@@ -25,4 +25,4 @@ console.log(game1.getPuzzle())
 const game2=new HangMan('qryasdxazc ','6')
 console.log(game2.getPuzzle())
 
-const abt=''
+

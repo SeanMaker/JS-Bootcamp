@@ -29,4 +29,4 @@ const friendOne=new Person('ChengYang','Luo','28',['drama'])
 console.log(me.getBio())
 console.log(friendOne.getBio())
 
-const name=''
+

@@ -1,5 +1,6 @@
 let  notes=getSavedNotes()
 
+
 const filter={
     searchText:'',
     sortBy:'byEdited'
