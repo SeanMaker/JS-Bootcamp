@@ -32,7 +32,4 @@ document.querySelector('#check-uncompleted').addEventListener('click',(e)=>{
     renderTodos(todos,filterText)
 })
 
-const randomSetNum=function(){
-
-}
 
