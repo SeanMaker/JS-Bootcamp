@@ -99,3 +99,6 @@ const generateSummaryDOM=(incompleteTodos)=>{
     return summary
 }
 
+const generateCalculationDOM=function(num){
+
+}
