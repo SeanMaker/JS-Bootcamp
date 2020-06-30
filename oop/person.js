@@ -32,4 +32,6 @@ const friendOne=new Person('ChengYang','Luo','28',['drama'])
 
 console.log(friendOne.getBio())
 
+const friendTwo=new Person('Amanda','Li','23',['movie'])
+
 

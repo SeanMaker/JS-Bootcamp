@@ -46,3 +46,8 @@ window.addEventListener('keypress',function(e){
     console.log(game1.remainingGuesses)
 })
 
+
+HangMan.prototype.createWord=function(word){
+
+}
+
