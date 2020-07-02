@@ -48,6 +48,6 @@ window.addEventListener('keypress',function(e){
 
 
 HangMan.prototype.createWord=function(word){
-    this.word=word.toLowerCase()
+    this.word=word.toLowerCase().split('')
 }
 

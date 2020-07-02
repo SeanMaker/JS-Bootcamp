@@ -100,5 +100,5 @@ const generateSummaryDOM=(incompleteTodos)=>{
 }
 
 const generateMenu=function(){
-
+    let i=0
 }
