@@ -1,10 +1,47 @@
 const HangMan=function (word,num) {
-
     // this.word=word.toLowerCase().replace(/\s*/g,'').split('')
     this.word=word.toLowerCase().split('')
     // console.log(this.word)
     this.remainingGuesses=num
     this.guessedLetter=[]
+    this.status='playing'
+}
+
+HangMan.prototype.calculateStatus=function(){
+    //method 1
+/*    if(game1.getPuzzle().toString()!==this.word.toString().replace(/\,*!/g,'') && this.remainingGuesses>=0){
+        this.status='playing'
+    }
+    if(game1.getPuzzle().toString()===this.word.toString().replace(/\,*!/g,'') && this.remainingGuesses>=0){
+        this.status='finished'
+    }
+    if(this.remainingGuesses<=0){
+        this.status='failed'
+    }*/
+
+    //method 2
+    /*let finished=true
+    this.word.forEach((letter)=>{
+        if(this.guessedLetter.includes(letter)){
+
+        }
+        else{
+            finished=false
+        }
+    })*/
+
+    //method 3
+    const finished=this.word.every((letter)=>{
+        return this.guessedLetter.includes(letter)
+    })
+
+    if(this.remainingGuesses<=0){
+        this.status='failed'
+    }else if(finished){
+        this.status='finished'
+    }else{
+        this.status='playing'
+    }
 }
 
 HangMan.prototype.getPuzzle=function(){
@@ -28,26 +65,11 @@ HangMan.prototype.makeGuess=function(guess){
     if(!this.guessedLetter.includes(guess)||!this.word.includes(guess)){
         this.remainingGuesses--
     }
-
+    this.calculateStatus()
 }
 
 
-const game1=new HangMan('cat',5)
-// game1.makeGuess('c')
-// game1.makeGuess('t')
-// game1.makeGuess('z')
-console.log(game1.getPuzzle())
-console.log(game1.remainingGuesses)
-
-window.addEventListener('keypress',function(e){
-    const guess=String.fromCharCode(e.charCode)
-    game1.makeGuess(guess)
-    console.log(game1.getPuzzle())
-    console.log(game1.remainingGuesses)
-})
 
 
-HangMan.prototype.createWord=function(word){
-    this.word=word.toLowerCase().split('')
-}
+
 
