@@ -99,6 +99,4 @@ const generateSummaryDOM=(incompleteTodos)=>{
     return summary
 }
 
-const generateMenu=function(){
-    let i=0
-}
+
