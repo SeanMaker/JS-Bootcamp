@@ -99,4 +99,6 @@ const generateSummaryDOM=(incompleteTodos)=>{
     return summary
 }
 
+const generateButton=function(){
 
+}

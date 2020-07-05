@@ -13,3 +13,4 @@ window.addEventListener('keypress',function(e){
     console.log(game1.status)
 })
 
+const obj={}
