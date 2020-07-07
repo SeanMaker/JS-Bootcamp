@@ -99,4 +99,5 @@ const generateSummaryDOM=(incompleteTodos)=>{
     return summary
 }
 
+const new_obj={}
 
