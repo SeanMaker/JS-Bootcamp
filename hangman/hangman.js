@@ -68,10 +68,6 @@ HangMan.prototype.makeGuess=function(guess){
     this.calculateStatus()
 }
 
-const Cool_CD=function(){
-    
-}
-
 
 
 
