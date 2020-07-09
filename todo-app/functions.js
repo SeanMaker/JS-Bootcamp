@@ -99,5 +99,8 @@ const generateSummaryDOM=(incompleteTodos)=>{
     return summary
 }
 
+const generateClick=function(){
 
+
+}
 
