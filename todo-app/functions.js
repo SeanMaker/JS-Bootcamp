@@ -100,7 +100,7 @@ const generateSummaryDOM=(incompleteTodos)=>{
 }
 
 const generateClick=function(){
-    const button=true
+    const flag=true
 
 }
 
