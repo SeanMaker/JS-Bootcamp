@@ -45,10 +45,10 @@ document.querySelector('#select-type').addEventListener('change',function(e){
     console.log(e.target.value)
 })
 
-//localStorage.setItem('location','New York')
-// console.log(localStorage.getItem('location'))
-// localStorage.removeItem('location')
-// localStorage.clear()
+/*localStorage.setItem('location','New York')
+console.log(localStorage.getItem('location'))
+localStorage.removeItem('location')
+localStorage.clear()*/
 
 const JSON_lists=JSON.stringify(lists)
 localStorage.setItem('local_lists',JSON_lists)
