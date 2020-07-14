@@ -59,6 +59,10 @@ HangMan.prototype.getPuzzle=function(){
 HangMan.prototype.makeGuess=function(guess){
     guess=guess.toLowerCase()
 
+    if(this.status!=='playing'){
+        return
+    }
+
     if(!this.guessedLetter.includes(guess)){
         this.guessedLetter.push(guess)
     }
@@ -66,6 +70,18 @@ HangMan.prototype.makeGuess=function(guess){
         this.remainingGuesses--
     }
     this.calculateStatus()
+}
+
+HangMan.prototype.getStatus=function(){
+    if (this.status==='playing'){
+        return `Guesses left: ${this.remainingGuesses}`
+    }
+    else if(this.status==='finished'){
+        return 'Great Work! You guessed the word.'
+    }
+    else if (this.status==='failed'){
+        return `Nice try! The word was "${this.word.join('')}"`
+    }
 }
 
 

@@ -9,7 +9,7 @@ window.addEventListener('keypress',function(e){
     const guess=String.fromCharCode(e.charCode)
     game1.makeGuess(guess)
     puzzleEl.textContent=game1.getPuzzle()
-    guessesEl.textContent=game1.remainingGuesses
+    guessesEl.textContent=game1.getStatus()
     console.log(game1.status)
 })
 
