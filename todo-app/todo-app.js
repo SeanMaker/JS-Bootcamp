@@ -32,6 +32,6 @@ document.querySelector('#check-uncompleted').addEventListener('click',(e)=>{
     renderTodos(todos,filterText)
 })
 
-
+const obj={username:DOB,psd:15437789}
 
 
