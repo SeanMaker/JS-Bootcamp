@@ -84,7 +84,7 @@ HangMan.prototype.getStatus=function(){
     }
 }
 
-angMan.prototype.changeStatus=function(){
+HangMan.prototype.changeStatus=function(){
 
 }
 
