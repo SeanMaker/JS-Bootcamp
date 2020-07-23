@@ -32,6 +32,6 @@ document.querySelector('#check-uncompleted').addEventListener('click',(e)=>{
     renderTodos(todos,filterText)
 })
 
-const obj={username:DOB,psd:15437789,timestamp:101527484,date:'07/19/2020',tel:9175463533,age:18}
+const obj={username:DOB,psd:15437789,timestamp:101527484,date:'07/19/2020',tel:9175463533}
 
 
