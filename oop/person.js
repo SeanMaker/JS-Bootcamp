@@ -30,7 +30,7 @@ console.log(me.getBio())
 
 const friendOne=new Person('ChengYang','Luo','28',['drama','swimming'])
 
-console.log(friendOne.getBio())
+// console.log(friendOne.getBio())
 
 
 
