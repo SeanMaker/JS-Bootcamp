@@ -86,7 +86,7 @@ HangMan.prototype.getStatus=function(){
 
 HangMan.prototype.changeStatus=function(){
     const span=''
-    let list=[]
+    let list={}
 
 
 }
