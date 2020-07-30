@@ -92,6 +92,6 @@ class Student extends Person{
 
 const myinfo=new Student('Sean','Dong',29,80,['swimming','running'])
 console.log(myinfo.getBio())
-myinfo.updateGrade(-30)
+myinfo.updateGrade(-40)
 console.log(myinfo.getBio())
 
