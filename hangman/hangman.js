@@ -20,7 +20,7 @@ class HangMan{
             this.status='playing'
         }
     }
-    getPuzzle(){
+    get puzzle(){
         let puzzle=''
         this.word.forEach((letter)=>{
             if(this.guessedLetter.includes(letter)||this.guessedLetter.includes(' ')){
@@ -46,7 +46,7 @@ class HangMan{
         }
         this.calculateStatus()
     }
-    getStatus(){
+    get statusMessage(){
         if (this.status==='playing'){
             return `Guesses left: ${this.remainingGuesses}`
         }
