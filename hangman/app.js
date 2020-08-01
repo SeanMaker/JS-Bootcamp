@@ -13,35 +13,25 @@ window.addEventListener('keypress',(e)=>{
     console.log(game1.status)
 })
 
-/*const request= new XMLHttpRequest()
 
-request.addEventListener('readystatechange',(e)=>{
-    if(e.target.readyState===4 && e.target.status===200){
-        const data=JSON.parse(e.target.responseText)
-        console.log(data)
-    }else if(e.target.readyState===4){
-        console.log('And  error has taken place')
+
+
+
+getPuzzle('3',(error,puzzle)=>{
+    if(error){
+        console.log(`Error: ${error}`)
+    }
+    else{
+        console.log(puzzle)
     }
 })
 
-request.open('Get','http://puzzle.mead.io/puzzle')
-request.send()*/
-
-const requestCountry=new XMLHttpRequest()
-const countryCode='US'
-requestCountry.addEventListener('readystatechange',(e)=>{
-    if(e.target.readyState===4 && e.target.status===200){
-        const data=JSON.parse(e.target.responseText)
-        const country=data.find(element => element.alpha2Code===countryCode)
-        console.log(country.name)
-
-    }else if(e.target.readyState===4){
-        console.log('unable to fetch data')
+getCountry('US',(error,country)=>{
+    if(error){
+        console.log(`Error: ${error}`)
+    }else{
+        console.log(`Country name: ${country.name}`)
     }
 })
-
-requestCountry.open('GET','http://restcountries.eu/rest/v2/all')
-requestCountry.send()
-
 
 
