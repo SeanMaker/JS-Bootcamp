@@ -1,4 +1,4 @@
-/*const myFunction=()=>{
+const myFunction=()=>{
     const message='This is my message'
     const printMessage=()=>{
         console.log(message)
@@ -7,7 +7,7 @@
 }
 
 const myPrintMessage=myFunction()
-myPrintMessage()*/
+myPrintMessage()
 
 // Counter
 /*const createCounter=()=>{
