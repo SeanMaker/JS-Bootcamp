@@ -10,7 +10,7 @@ const myPrintMessage=myFunction()
 myPrintMessage()
 
 // Counter
-/*const createCounter=()=>{
+const createCounter=()=>{
     let count=0
 
     return {
@@ -32,17 +32,17 @@ console.log(counter.get())
 counter.decrement()
 console.log(counter.get())
 counter.decrement()
-console.log(counter.get())*/
+console.log(counter.get())
 
 //Adder
-/*const createAdder=(a)=>{
+const createAdder=(a)=>{
     return (b)=>{
         return a+b
     }
 }
 
 const add_10=createAdder(10)
-console.log(add_10(10))*/
+console.log(add_10(10))
 
 //Tipper
 const createrTipper=(baseTip)=> {
