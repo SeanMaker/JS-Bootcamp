@@ -61,16 +61,16 @@ class Employee extends Person {
     }
 }
 
-// const me=new Employee('Sean','Dong',29,'Teacher',['swimming','running'])
-// me.setName('Shiheng Dong')
-// me.getBio=function(){
-//     return 'testing'
-// }
-// console.log(me.getBio())
+const me=new Employee('Sean','Dong',29,'Teacher',['swimming','running'])
+me.setName('Shiheng Dong')
+me.getBio=function(){
+    return 'testing'
+}
+console.log(me.getBio())
 
-// const friendOne=new Person('ChengYang','Luo','28',['drama','swimming'])
-//
-// console.log(friendOne.getBio())
+const friendOne=new Person('ChengYang','Luo','28',['drama','swimming'])
+
+console.log(friendOne.getBio())
 
 
 class Student extends Person{
