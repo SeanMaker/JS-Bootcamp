@@ -4,4 +4,4 @@ let payTip=function (total,percentage=.2) {
     console.log(`A ${percent}% tip on $${total} would be $${payment}`)
 }
 
-payTip(40,.30)
+payTip(100,.30)

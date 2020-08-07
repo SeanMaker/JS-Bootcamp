@@ -10,7 +10,7 @@ const myPrintMessage=myFunction()
 myPrintMessage()
 
 // Counter
-const createCounter=()=>{
+/*const createCounter=()=>{
     let count=0
 
     return {
@@ -32,7 +32,7 @@ console.log(counter.get())
 counter.decrement()
 console.log(counter.get())
 counter.decrement()
-console.log(counter.get())
+console.log(counter.get())*/
 
 //Adder
 const createAdder=(a)=>{
