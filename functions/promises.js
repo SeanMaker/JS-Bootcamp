@@ -2,7 +2,6 @@
 const getDataCallback=(callback)=>{
     setTimeout(()=>{
         callback('This is my callback error',undefined)
-        callback('This is my callback error',undefined)
     },2000)
 }
 

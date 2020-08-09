@@ -51,8 +51,8 @@ const createrTipper=(baseTip)=> {
     }
 }
 const tip20=createrTipper(.2)
-const tip30=createrTipper(.3)
+const tip30=createrTipper(.15)
 
 console.log(tip20(100))
-console.log(tip30(100))
+console.log(tip30(200))
 

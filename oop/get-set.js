@@ -10,5 +10,5 @@ const data={
 }
 
 data.location='New York'
-data.location='PL'
+data.location='NJ'
 console.log(data.location)
