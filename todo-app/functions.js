@@ -102,7 +102,7 @@ const generateSummaryDOM=(incompleteTodos)=>{
 const generateClick=function(){
     let sum=0
     for(let i=0;i<=9;i++){
-        sum+=i**
+        sum=i+sum
     }
 
 }

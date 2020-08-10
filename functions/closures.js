@@ -1,3 +1,4 @@
+/*
 const myFunction=()=>{
     const message='This is my message'
     const printMessage=()=>{
@@ -8,6 +9,7 @@ const myFunction=()=>{
 
 const myPrintMessage=myFunction()
 myPrintMessage()
+*/
 
 // Counter
 const createCounter=()=>{
