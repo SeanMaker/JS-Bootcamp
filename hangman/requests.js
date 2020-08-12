@@ -1,34 +1,45 @@
-const getPuzzle=(wordCount,callback)=>{
-    // callback('Some fake puzzle')
+//use XMLHttpRequest to get puzzle
+/*const getPuzzle=(wordCount)=> new Promise((resolve,reject)=>{
     const request= new XMLHttpRequest()
 
     request.addEventListener('readystatechange',(e)=>{
         if(e.target.readyState===4 && e.target.status===200){
             const data=JSON.parse(e.target.responseText)
-            callback(undefined,data.puzzle)
+            resolve(data.puzzle)
         }else if(e.target.readyState===4){
-            callback('An error has taken place',undefined)
+            reject('An error has taken place')
         }
     })
 
     request.open('GET',`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
     request.send()
+})*/
+
+//use fetch API to get puzzle
+const getPuzzle=(wordCount)=>{
+    return fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`,{}).then((response)=>{
+        if(response.status===200){
+            return response.json()
+        }else{
+            throw new Error('Unable to fetch the puzzle')
+        }
+    })
 }
 
-const getCountry=(countryCode,callback)=>{
+const getCountry=(countryCode)=> new Promise((resolve,reject)=>{
     const requestCountry=new XMLHttpRequest()
 
     requestCountry.addEventListener('readystatechange',(e)=>{
         if(e.target.readyState===4 && e.target.status===200){
             const data=JSON.parse(e.target.responseText)
             const countryDetail=data.find((element) => element.alpha2Code===countryCode)
-            callback(undefined,countryDetail)
+            resolve(countryDetail)
 
         }else if(e.target.readyState===4){
-            console.log('unable to fetch data')
+            reject('unable to fetch data')
         }
     })
 
     requestCountry.open('GET','http://restcountries.eu/rest/v2/all')
     requestCountry.send()
-}
+})

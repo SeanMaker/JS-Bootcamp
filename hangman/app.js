@@ -13,25 +13,28 @@ window.addEventListener('keypress',(e)=>{
     console.log(game1.status)
 })
 
-
-
-
-
-getPuzzle('2',(error,puzzle)=>{
-    if(error){
-        console.log(`Error: ${error}`)
-    }
-    else{
-        console.log(puzzle)
-    }
-})
-
-getCountry('US',(error,country)=>{
-    if(error){
-        console.log(`Error: ${error}`)
+/*fetch('http://puzzle.mead.io/puzzle',{}).then((response)=>{
+    if(response.status===200){
+        return response.json()
     }else{
-        console.log(`Country name: ${country.name}`)
+        throw new Error('Unable to fetch the puzzle')
     }
+}).then((data)=>{
+    console.log(data.puzzle)
+}).catch((error)=>{
+    console.log(error)
+})*/
+
+getPuzzle('2').then((data)=>{
+    console.log(data.puzzle)
+}).catch((err)=>{
+    console.log(`Error: ${err}`)
 })
+
+// getCountry('US').then((country)=>{
+//     console.log(country.name)
+// },(error)=>{
+//     console.log(`Error: ${error}`)
+// })
 
 
