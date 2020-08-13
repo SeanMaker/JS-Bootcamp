@@ -15,18 +15,8 @@
     request.send()
 })*/
 
-//use fetch API to get puzzle
-const getPuzzle=(wordCount)=>{
-    return fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`,{}).then((response)=>{
-        if(response.status===200){
-            return response.json()
-        }else{
-            throw new Error('Unable to fetch the puzzle')
-        }
-    })
-}
-
-const getCountry=(countryCode)=> new Promise((resolve,reject)=>{
+//use XMLHttpRequest to get country
+/*const getCountry=(countryCode)=> new Promise((resolve,reject)=>{
     const requestCountry=new XMLHttpRequest()
 
     requestCountry.addEventListener('readystatechange',(e)=>{
@@ -42,4 +32,29 @@ const getCountry=(countryCode)=> new Promise((resolve,reject)=>{
 
     requestCountry.open('GET','http://restcountries.eu/rest/v2/all')
     requestCountry.send()
-})
+})*/
+
+
+
+//use fetch API to get puzzle
+const getPuzzle=(wordCount)=>{
+    return fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`,{}).then((response)=>{
+        if(response.status===200){
+            return response.json()
+        }else{
+            throw new Error('Unable to fetch the puzzle')
+        }
+    })
+}
+
+const getCountry=(countryCode)=>{
+    return fetch('http://restcountries.eu/rest/v2/all',{}).then((response)=>{
+        if(response.status===200){
+            return response.json()
+        }else{
+            throw new Error('Unable to fetch data')
+        }
+    }).then((data)=>{
+        return country=data.find((element) => element.alpha2Code===countryCode)
+    })
+}
