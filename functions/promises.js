@@ -41,7 +41,7 @@ getDataPromise(2).then((data)=>{
     console.log(err)
 })
 
-getDataPromise('10').then((data)=>{
+getDataPromise('100').then((data)=>{
     return getDataPromise(data)
 }).then((data)=>{
     return getDataPromise(data)
