@@ -93,7 +93,7 @@ class Student extends Person{
     }
 }
 
-const myinfo=new Employee('Sean','Dong',29,'Teacher',['swimming','running'])
+const myinfo=new Employee('Sean','Dong',29,'Teacher',['swimming','running','running'])
 myinfo.fullName='Sean Dong'
 console.log(myinfo.getBio())
 // myinfo.updateGrade(-40)
