@@ -9,6 +9,6 @@ const data={
     }
 }
 
-data.location='New York'
-data.location='NC'
+data.location='Chicago'
+data.location='NJ'
 console.log(data.location)
