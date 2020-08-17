@@ -94,7 +94,7 @@ class Student extends Person{
 }
 
 const myinfo=new Employee('Sean','Dong',29,'Teacher',['swimming','running','running'])
-myinfo.fullName='Alen Dong'
+myinfo.fullName='Luis Dong'
 console.log(myinfo.getBio())
 // myinfo.updateGrade(-40)
 // console.log(myinfo.getBio())
