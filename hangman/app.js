@@ -31,11 +31,28 @@ getPuzzle('2').then((data)=>{
     console.log(`Error: ${err}`)
 })
 
-getCountry('US').then((country)=>{
+/*getCountry('US').then((country)=>{
     console.log(country.name)
 }).catch((error)=> {
     console.log(`Error: ${error}`)
+})*/
+
+getLocation().then((data)=>{
+    return getCountry(data.country)
+}).then((country)=>{
+    console.log(country.name)
+}).catch((error)=>{
+    console.log(`Error: ${error}`)
 })
+
+
+/*getLocation().then((data)=>{
+    console.log(`City: ${data.city}`)
+    console.log(`Region: ${data.region}`)
+    console.log(`Country: ${data.country}`)
+},(err)=>{
+    console.log(err)
+})*/
 
 
 

@@ -28,7 +28,7 @@ getDataCallback(2,(error,data)=>{
 const getDataPromise=(num)=> new Promise((resolve, reject)=>{
     setTimeout(()=>{
         typeof num==='number'? resolve(num*2):reject('Number must be provided')
-    },1000)
+    },2000)
 })
 
 getDataPromise(2).then((data)=>{
