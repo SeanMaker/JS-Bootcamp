@@ -71,7 +71,7 @@ const getPuzzle=async (wordCount)=>{
 
     if(response.status===200){
         const data=await response.json()
-        return data
+        return data.puzzle
     }else{
         throw new Error('Unable to fetch data')
     }
@@ -80,25 +80,31 @@ const getPuzzle=async (wordCount)=>{
 
 
 
-const getCountry=(countryCode)=>{
-    return fetch('http://restcountries.eu/rest/v2/all',{}).then((response)=>{
-        if(response.status===200){
-            return response.json()
-        }else{
-            throw new Error('Unable to fetch data')
-        }
-    }).then((data)=>{
-        return country=data.find((element) => element.alpha2Code===countryCode)
-    })
+const getCountry=async (countryCode)=>{
+    const response=await fetch('http://restcountries.eu/rest/v2/all')
+    if(response.status===200){
+        const data=await response.json()
+        const country=data.find((element) => element.alpha2Code===countryCode)
+        return country
+    }else{
+        throw new Error('Unable to fetch data')
+    }
+
 }
 
-const getLocation=()=>{
-    return fetch('http://ipinfo.io/json?token=a4bdde81886d0c',{}).then((response)=>{
-        if(response.status===200){
-            return response.json()
-        }else{
-            throw new Error('Unable to fetch data')
-        }
-    })
+const getLocation=async()=>{
+    const response=await fetch('http://ipinfo.io/json?token=a4bdde81886d0c')
+    if(response.status===200){
+        const data= await response.json()
+        return data
+    }else{
+        throw new Error('Unable to fetch data')
+    }
+}
+
+const getCurrentCountry=async()=>{
+    const location=await getLocation()
+    const country=await getCountry(location.country)
+    return country
 }
 
