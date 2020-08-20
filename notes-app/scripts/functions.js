@@ -44,41 +44,64 @@ const sortNotes=(notes,sortBy)=>{
 
 //Render application notes based on filters
 const renderNotes=(notes,filer)=>{
+    const notesEl=document.querySelector('#notes')
     notes=sortNotes(notes,filter.sortBy)
 
     let filteredNotes=notes.filter((note)=>note.title.toLowerCase().includes(filter.searchText.toLowerCase())
     )
+    notesEl.innerHTML=''
 
-    document.querySelector('#notes').innerHTML=''
+    if(filteredNotes.length>0){
+        filteredNotes.forEach((element)=>{
+            notesEl.appendChild(generateNoteDOM(element))
+        })
+    }else{
+        const emptyMessage=document.createElement('p')
+        emptyMessage.textContent='No notes to show'
+        emptyMessage.classList.add('empty-message')
+        notesEl.appendChild(emptyMessage)
+    }
 
-    filteredNotes.forEach((element)=>{
-        document.querySelector('#notes').appendChild(generateNoteDOM(element))
-    })
+
 }
 
 //Get the DOM elements for an individual note
 const generateNoteDOM=(element)=> {
     //set up a root div
-    const noteEl=document.createElement('div')
+    const noteEl=document.createElement('a')
+    const noteTitle=document.createElement('p')
+    const statusEl=document.createElement('p')
 
-    //set up and append a button
-    const removeButton=document.createElement('button')
-    removeButton.textContent='x'
-    noteEl.appendChild(removeButton)
-
-    //set up and append a archor
-    const noteTitle=document.createElement('a')
-    noteTitle.textContent=element.title
-    noteTitle.setAttribute('href',`edit.html#${element.id}`)
+    //setup the note title text
+    if(element.title.length>0){
+        noteTitle.textContent=element.title
+    }else{
+        noteTitle.textContent='Unnamed note'
+    }
+    noteTitle.classList.add('list-item__title')
     noteEl.appendChild(noteTitle)
 
-    //set EventListener to remove note when click the button
-    removeButton.addEventListener('click', ()=> {
+    //setup the link
+    noteEl.setAttribute('href',`edit.html#${element.id}`)
+    noteEl.classList.add('list-item')
+
+    //setup the status message
+    statusEl.textContent=generateLastEdited(element.updatedAt)
+    statusEl.classList.add('list-item__subtitle')
+    noteEl.appendChild(statusEl)
+    return noteEl
+
+    //set up and append a button
+/*    const removeButton=document.createElement('button')
+    removeButton.textContent='x'
+    noteEl.appendChild(removeButton)*/
+
+/*    removeButton.addEventListener('click', ()=> {
         removeNote(element.id)
         saveNotes(notes)
         renderNotes(notes,filter)
-    })
-    return noteEl
+    })*/
+
 }
 
 //set up time left after updated

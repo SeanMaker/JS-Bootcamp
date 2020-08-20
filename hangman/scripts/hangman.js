@@ -23,7 +23,7 @@ class HangMan{
     get puzzle(){
         let puzzle=''
         this.word.forEach((letter)=>{
-            if(this.guessedLetter.includes(letter)||this.guessedLetter.includes(' ')){
+            if(this.guessedLetter.includes(letter)|| letter===' '){
                 puzzle+=letter
             }else{
                 puzzle+='*'
