@@ -16,15 +16,17 @@ document.querySelector('#filter-todo').addEventListener('input', (e)=> {
 
 document.querySelector('#add-things-todo').addEventListener('submit',(e)=>{
     e.preventDefault()
-    todos.push({
-        id:uuidv4(),
-        text:e.target.elements.text.value,
-        completed:false
-    })
-    saveTodos(todos)
-    renderTodos(todos,filterText)
-    e.target.elements.text.value=''
-
+    const item=e.target.elements.text.value.trim()
+    if(item.length>0){
+        todos.push({
+            id:uuidv4(),
+            text:item,
+            completed:false
+        })
+        saveTodos(todos)
+        renderTodos(todos,filterText)
+        e.target.elements.text.value=''
+    }
 })
 
 document.querySelector('#check-uncompleted').addEventListener('click',(e)=>{
@@ -32,6 +34,5 @@ document.querySelector('#check-uncompleted').addEventListener('click',(e)=>{
     renderTodos(todos,filterText)
 })
 
-const obj={username:DOB,psd:15437789,timestamp:101527484,date:'07/19/2020',ID:96373,Phone:6463876736}
 
 

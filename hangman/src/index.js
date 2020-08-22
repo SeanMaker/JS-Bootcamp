@@ -1,3 +1,5 @@
+import Hangman from './hangman'
+
 const puzzleEl=document.querySelector('#puzzle')
 const guessesEl=document.querySelector('#guesses')
 // const game1=new HangMan('car parts',10)
@@ -54,9 +56,6 @@ startGame()
 }).catch((error)=> {
     console.log(`Error: ${error}`)
 })
-
-
-
 getCurrentCountry().then((country)=>{
     console.log(country.name)
 }).catch((error)=>{
@@ -88,5 +87,3 @@ getCurrentCountry().then((country)=>{
 // },(error)=>{
 //     console.log(`Error: ${error}`)
 // })
-
-

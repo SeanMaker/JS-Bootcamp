@@ -59,6 +59,8 @@ class HangMan{
     }
 }
 
+export { HangMan as default }
+
 
 /*const HangMan=function (word,num) {
     // this.word=word.toLowerCase().replace(/\s*!/g,'').split('')
