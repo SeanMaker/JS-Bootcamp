@@ -77,9 +77,6 @@ const getPuzzle=async (wordCount)=>{
     }
 }
 
-
-
-
 const getCountry=async (countryCode)=>{
     const response=await fetch('//restcountries.eu/rest/v2/all')
     if(response.status===200){
@@ -108,3 +105,4 @@ const getCurrentCountry=async()=>{
     return country
 }
 
+export {getPuzzle as default}
