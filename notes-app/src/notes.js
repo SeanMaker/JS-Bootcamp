@@ -34,6 +34,8 @@ const createNote=()=>{
         updatedAt:timestamp
     })
     saveNotes()
+
+    return id
 }
 
 //remove note when click the button
@@ -81,6 +83,7 @@ const updateNote=(id,updates)=>{
     }
 
     saveNotes()
+    return note
 }
 
 notes=loadNotes()
