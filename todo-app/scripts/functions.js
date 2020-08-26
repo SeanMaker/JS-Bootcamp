@@ -124,4 +124,8 @@ const generateSummaryDOM=(incompleteTodos)=>{
     return summary
 }
 
+const addTodos=()=>{
+
+}
+
 
