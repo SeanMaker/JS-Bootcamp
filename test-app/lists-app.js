@@ -2,7 +2,8 @@ const lists=[
     {text:'apple', type:'fruit'},
     {text:'orange', type:'fruit'},
     {text:'mobile phone', type:'device'},
-    {text:'laptop', type:'device'}
+    {text:'laptop', type:'device'},
+    {text:'ipad', type:'device'}
 ]
 
 // console.log(lists)

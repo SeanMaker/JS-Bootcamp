@@ -125,7 +125,7 @@ const generateSummaryDOM=(incompleteTodos)=>{
 }
 
 const addTodos=()=>{
-
+        const list={}
 }
 
 

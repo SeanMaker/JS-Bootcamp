@@ -35,5 +35,4 @@ document.querySelector('#check-uncompleted').addEventListener('click',(e)=>{
 })
 
 
-const todoList={}
 
