@@ -57,3 +57,7 @@ console.log(JSON_lists)
 const get_local_lists=localStorage.getItem('local_lists')
 const JSON_get_lists=JSON.parse(get_local_lists)
 // console.log(JSON_get_lists)
+
+const login=()=>{
+	
+}
