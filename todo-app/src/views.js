@@ -4,13 +4,13 @@ import {getFilters} from "./filters";
 // renderTodos
 const renderTodos=()=>{
     const todos=getTodos()
-    const filterText=getFilters()
+    const {searchText,hideCompleted}=getFilters()
     const todoEl=document.querySelector('#div-filter')
-    let filteredTodes=todos.filter((todo)=>todo.text.toLowerCase().includes(filterText.searchText.toLowerCase()))
+    let filteredTodes=todos.filter((todo)=>todo.text.toLowerCase().includes(searchText.toLowerCase()))
 
     filteredTodes=filteredTodes.filter((todo)=>{
 
-        if(filterText.hideCompleted===true){
+        if(hideCompleted===true){
             return todo.completed===false
         }
         else{
