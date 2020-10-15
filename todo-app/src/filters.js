@@ -4,11 +4,6 @@ let filterText={
     hideCompleted:false
 }
 
-// getFilters
-// Arguments: none
-// Return value: filters object
-const getFilters=()=> filterText
-
 // setFilters
 // Arguments: updates object with optional searchText or hideCompleted
 // Return value: none
@@ -21,6 +16,14 @@ const setFilters=({searchText,hideCompleted})=>{
     }
 
 }
+
+
+// getFilters
+// Arguments: none
+// Return value: filters object
+const getFilters=()=> filterText
+
+
 
 // set up the exports
 export {getFilters,setFilters}
